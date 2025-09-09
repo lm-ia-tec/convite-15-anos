@@ -7,16 +7,15 @@
 <style>
   /* ======= Estilos básicos ======= */
   body {
-  margin: 0;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  color: #fff;
-  text-align: center;
-  min-height: 100vh;
-  overflow-x: hidden;
-  background: url('fundo.png') no-repeat center center fixed;
-  background-size: cover;
-}
-
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #fff;
+    text-align: center;
+    min-height: 100vh;
+    overflow-x: hidden;
+    background: url('fundo.png') no-repeat center center fixed;
+    background-size: cover;
+  }
 
   header {
     padding: 2rem 1rem;
@@ -64,7 +63,6 @@
     box-shadow: 0 0 25px #ffd1dc, 0 0 50px #f8cdda;
   }
 
-  /* Pó de fada pulsante */
   .btn::before {
     content: '';
     position: absolute;
@@ -148,8 +146,15 @@
     header h1 { font-size: 1.6rem; }
     .details h2 { font-size: 1.1rem; }
     .btn { padding: 0.6rem 1rem; font-size: 0.9rem; }
+    iframe { height: 400px; }
   }
 
+  /* ======= Iframe do formulário ======= */
+  iframe {
+    width: 100%;
+    border: none;
+    border-radius: 12px;
+  }
 </style>
 </head>
 <body>
@@ -160,8 +165,7 @@
 </header>
 
 <section class="details">
-  <h2>Meus 15 anos
-    by: Maria Gabriely</h2>
+  <h2>Meus 15 anos by: Maria Gabriely</h2>
   <p><strong>Data:</strong> 27 de novembro de 2025 às 19h</p>
   <p><strong>Local:</strong> Espaço North - Av. Mister Hull, 4758 - Antônio Bezerra, Fortaleza - CE, 60356-682</p>
   <a class="btn" href="https://www.google.com/maps/dir/?api=1&destination=Espaço+North,+Av.+Mister+Hull,+4758+-+Antônio+Bezerra,+Fortaleza+-+CE,+60356-682" target="_blank">📍 Ver no mapa</a>
@@ -172,6 +176,12 @@
   <h2>Sugestões de Presentes</h2>
   <a class="btn" href="https://www.magazineluiza.com.br/relogio-smartwatch-w29-pro-series-9-lancamento-2024-nfc-gps-gpt-original-microwear/p/kccdaa8c6b/" target="_blank">⌚ Relógio Feminino</a>
   <a class="btn" href="https://www.gocase.com.br/tote-mini-clear/p/7897-minitotebag" target="_blank">👜 Bolsa Infantil</a>
+</section>
+
+<section class="details">
+  <h2>Confirmar Presença</h2>
+  <!-- Substitua o link abaixo pelo seu formulário do Google Forms -->
+  <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSfcEdLxQ0huL4yfuwKb3kHXksM3rMbKfae19P2opt1DxjHrww/viewform?usp=header"></iframe>
 </section>
 
 <footer>
@@ -206,5 +216,3 @@
 </script>
 </body>
 </html>
-
-
