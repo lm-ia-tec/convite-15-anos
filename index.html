@@ -102,25 +102,23 @@
     color: #ddd;
   }
 
-  /* ======= Neve ======= */
-  .snowflake {
+  /* ======= Borboletas ======= */
+  .butterfly {
     position: fixed;
-    top: -10px;
+    bottom: -20px;
     font-size: 1em;
-    color: #fff;
     user-select: none;
     pointer-events: none;
     z-index: 1000;
-    text-shadow: 0 0 5px #aaddff;
-    animation-name: fall;
-    animation-duration: 10s;
+    animation-name: rise;
     animation-iteration-count: infinite;
     animation-timing-function: linear;
   }
 
-  @keyframes fall {
-    0% { transform: translateY(0) rotate(0deg); }
-    100% { transform: translateY(100vh) rotate(360deg); }
+  @keyframes rise {
+    0% { transform: translateY(0) rotate(0deg); opacity: 0; }
+    10% { opacity: 1; }
+    100% { transform: translateY(-110vh) rotate(360deg); opacity: 0; }
   }
 
   /* ======= Estrelas brilhantes ======= */
@@ -178,23 +176,28 @@
   <a class="btn" href="https://www.gocase.com.br/tote-mini-clear/p/7897-minitotebag" target="_blank">👜 Bolsa Infantil</a>
 </section>
 
+<section class="details">
+  <h2>Confirmar Presença</h2>
+  <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSfcEdLxQ0huL4yfuwKb3kHXksM3rMbKfae19P2opt1DxjHrww/viewform?embedded=true" height="500"></iframe>
+</section>
+
 <footer>
   <p>Esperamos você para uma noite mágica! ✨</p>
 </footer>
 
 <script>
-  // ======= Neve =======
-  function createSnowflake() {
-    const snowflake = document.createElement('div');
-    snowflake.classList.add('snowflake');
-    snowflake.style.left = Math.random() * window.innerWidth + 'px';
-    snowflake.style.fontSize = (Math.random() * 10 + 10) + 'px';
-    snowflake.style.animationDuration = (Math.random() * 5 + 5) + 's';
-    snowflake.innerText = '❄';
-    document.body.appendChild(snowflake);
-    setTimeout(() => snowflake.remove(), 10000);
+  // ======= Criar borboletas =======
+  function createButterfly() {
+    const butterfly = document.createElement('div');
+    butterfly.classList.add('butterfly');
+    butterfly.style.left = Math.random() * window.innerWidth + 'px';
+    butterfly.style.fontSize = (Math.random() * 15 + 10) + 'px';
+    butterfly.style.animationDuration = (Math.random() * 15 + 10) + 's';
+    butterfly.innerText = '🦋';
+    document.body.appendChild(butterfly);
+    setTimeout(() => butterfly.remove(), parseFloat(butterfly.style.animationDuration) * 1000);
   }
-  setInterval(createSnowflake, 200);
+  setInterval(createButterfly, 500);
 
   // ======= Estrelas =======
   for (let i = 0; i < 100; i++) {
@@ -210,5 +213,3 @@
 </script>
 </body>
 </html>
-
-
