@@ -1,99 +1,194 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Convite - 15 anos Maria Gabriely</title>
-  <style>
-    body, html {
-      margin: 0;
-      padding: 0;
-      height: 100%;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Convite - 15 anos Maria Gabriely</title>
+<style>
+  body {
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #fff;
+    background: linear-gradient(to top, #1e3c72, #2a5298);
+    background-attachment: fixed;
+    text-align: center;
+    overflow: hidden;
+  }
 
-    .background {
-      position: relative;
-      width: 100%;
-      height: 100%;
-      background: url('https://capricho.abril.com.br/wp-content/uploads/2021/08/colecao-vestido-noiva-disney-cinderela.jpg?quality=85&strip=info&w=1024') no-repeat center center fixed;
-      background-size: cover;
-    }
+  header {
+    padding: 2rem;
+    background: rgba(0,0,0,0.3);
+  }
 
-    .invite-message {
-      position: absolute;
-      top: 5%;
-      width: 100%;
-      text-align: center;
-      color: #fff;
-      font-size: 2rem;
-      font-weight: bold;
-      text-shadow: 2px 2px 10px #000;
-    }
+  header h1 {
+    font-size: 2.5rem;
+    color: #f8cdda;
+    text-shadow: 2px 2px 10px #ffd1dc;
+  }
 
-    .btn {
-      position: absolute;
-      padding: 0.7rem 1.2rem;
-      background: #f8cdda;
-      color: #2a2a2a;
-      text-decoration: none;
-      border-radius: 8px;
-      box-shadow: 0 0 10px rgba(255,255,255,0.6);
-      transition: 0.5s;
-    }
+  .details {
+    margin: 2rem auto;
+    padding: 1rem;
+    max-width: 600px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+  }
 
-    .btn:hover {
-      background: #fff;
-      box-shadow: 0 0 25px #ffd1dc, 0 0 50px #f8cdda;
-    }
+  .details h2 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    color: #ffd1dc;
+  }
 
-    .btn1 { top: 20%; left: 20%; }
-    .btn2 { top: 20%; right: 20%; }
-    .btn3 { top: 60%; left: 15%; }
-    .btn4 { top: 60%; right: 15%; }
+  /* Botões mágicos */
+  .btn {
+    display: inline-block;
+    margin: 1rem;
+    padding: 0.8rem 1.5rem;
+    background: #f8cdda;
+    color: #2a2a2a;
+    text-decoration: none;
+    border-radius: 8px;
+    transition: 0.5s;
+    box-shadow: 0 0 10px rgba(255,255,255,0.6);
+    position: relative;
+    overflow: hidden;
+  }
 
-    .butterfly {
-      position: absolute;
-      font-size: 1.5rem;
-      color: #ffb6c1;
-      pointer-events: none;
-      animation-name: fly;
-      animation-duration: 8s;
-      animation-iteration-count: infinite;
-      animation-timing-function: ease-in-out;
-    }
+  .btn:hover {
+    background: #fff;
+    color: #000;
+    box-shadow: 0 0 25px #ffd1dc, 0 0 50px #f8cdda;
+  }
 
-    @keyframes fly {
-      0% { transform: translate(0,0) rotate(0deg); opacity: 0; }
-      10% { opacity: 1; }
-      50% { transform: translate(100px,-150px) rotate(180deg); opacity: 1; }
-      100% { transform: translate(200px,-300px) rotate(360deg); opacity: 0; }
-    }
+  /* Pó de fada pulsante */
+  .btn::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255,255,255,0.4) 0%, rgba(255,255,255,0) 70%);
+    transform: translate(-50%, -50%) scale(0);
+    opacity: 0;
+    border-radius: 50%;
+    pointer-events: none;
+    transition: transform 0.6s, opacity 0.6s;
+  }
 
-  </style>
+  .btn:hover::before {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 1;
+  }
+
+  .decor-stars {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    background: url('https://www.transparenttextures.com/patterns/stardust.png');
+    opacity: 0.3;
+  }
+
+  footer {
+    margin: 2rem 0;
+    font-size: 0.9rem;
+    color: #ddd;
+  }
+
+  /* Neve */
+  .snowflake {
+    position: fixed;
+    top: -10px;
+    font-size: 1em;
+    color: #fff;
+    user-select: none;
+    pointer-events: none;
+    z-index: 1000;
+    text-shadow: 0 0 5px #aaddff;
+    animation-name: fall;
+    animation-duration: 10s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+  }
+
+  @keyframes fall {
+    0% { transform: translateY(0) rotate(0deg); }
+    100% { transform: translateY(100vh) rotate(360deg); }
+  }
+
+  /* Estrelas brilhantes */
+  .star {
+    position: fixed;
+    background: radial-gradient(circle, #ffffff, rgba(255,255,255,0));
+    border-radius: 50%;
+    width: 2px;
+    height: 2px;
+    opacity: 0.8;
+    animation-name: twinkle;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-in-out;
+  }
+
+  @keyframes twinkle {
+    0%, 100% { opacity: 0.3; transform: scale(1); }
+    50% { opacity: 1; transform: scale(1.5); }
+  }
+</style>
 </head>
 <body>
-  <div class="background">
-    <div class="invite-message">✨ Você está convidado para o Baile da Cinderela ✨</div>
+<div class="decor-stars"></div>
 
-    <a class="btn btn1" href="https://www.google.com/maps/dir/?api=1&destination=Espaço+North,+Av.+Mister+Hull,+4758+-+Antônio+Bezerra,+Fortaleza+-+CE,+60356-682" target="_blank">📍 Ver no mapa</a>
-    <a class="btn btn2" href="LINK_DO_FORMULARIO_GOOGLE" target="_blank">✅ Confirmar presença</a>
-    <a class="btn btn3" href="https://www.magazineluiza.com.br/relogio-smartwatch-w29-pro-series-9-lancamento-2024-nfc-gps-gpt-original-microwear/p/kccdaa8c6b/" target="_blank">⌚ Relógio Feminino</a>
-    <a class="btn btn4" href="https://www.gocase.com.br/tote-mini-clear/p/7897-minitotebag" target="_blank">👜 Bolsa Infantil</a>
-  </div>
+<header>
+  <h1>✨ Você está convidado para o Baile da Cinderela ✨</h1>
+</header>
 
-  <script>
-    function createButterfly() {
-      const butterfly = document.createElement('div');
-      butterfly.classList.add('butterfly');
-      butterfly.style.left = window.innerWidth/2 + (Math.random() * 40 - 20) + 'px';
-      butterfly.style.top = window.innerHeight - 200 + 'px';
-      butterfly.style.fontSize = (Math.random() * 20 + 15) + 'px';
-      butterfly.innerText = '🦋';
-      document.body.appendChild(butterfly);
-      setTimeout(() => butterfly.remove(), 8000);
-    }
-    setInterval(createButterfly, 500);
-  </script>
+<section class="details">
+  <h2>Aniversário de 15 anos de Maria Gabriely</h2>
+  <p><strong>Data:</strong> 27 de novembro de 2025 às 19h</p>
+  <p><strong>Local:</strong> Espaço North - Av. Mister Hull, 4758 - Antônio Bezerra, Fortaleza - CE, 60356-682</p>
+  <a class="btn" href="https://www.google.com/maps/dir/?api=1&destination=Espaço+North,+Av.+Mister+Hull,+4758+-+Antônio+Bezerra,+Fortaleza+-+CE,+60356-682" target="_blank">📍 Ver no mapa</a>
+  <a class="btn" href="LINK_DO_FORMULARIO_GOOGLE" target="_blank">✅ Confirmar presença</a>
+</section>
+
+<section class="details">
+  <h2>Sugestões de Presentes</h2>
+  <a class="btn" href="https://www.magazineluiza.com.br/relogio-smartwatch-w29-pro-series-9-lancamento-2024-nfc-gps-gpt-original-microwear/p/kccdaa8c6b/" target="_blank">⌚ Relógio Feminino</a>
+  <a class="btn" href="https://www.gocase.com.br/tote-mini-clear/p/7897-minitotebag" target="_blank">👜 Bolsa Infantil</a>
+</section>
+
+<footer>
+  <p>Esperamos você para uma noite mágica! ✨</p>
+</footer>
+
+<script>
+  // Neve
+  function createSnowflake() {
+    const snowflake = document.createElement('div');
+    snowflake.classList.add('snowflake');
+    snowflake.style.left = Math.random() * window.innerWidth + 'px';
+    snowflake.style.fontSize = (Math.random() * 10 + 10) + 'px';
+    snowflake.style.animationDuration = (Math.random() * 5 + 5) + 's';
+    snowflake.innerText = '❄';
+    document.body.appendChild(snowflake);
+    setTimeout(() => snowflake.remove(), 10000);
+  }
+  setInterval(createSnowflake, 200);
+
+  // Estrelas
+  for (let i = 0; i < 100; i++) {
+    const star = document.createElement('div');
+    star.classList.add('star');
+    star.style.left = Math.random() * window.innerWidth + 'px';
+    star.style.top = Math.random() * window.innerHeight + 'px';
+    star.style.width = Math.random() * 3 + 1 + 'px';
+    star.style.height = star.style.width;
+    star.style.animationDuration = (Math.random() * 2 + 1) + 's';
+    document.body.appendChild(star);
+  }
+</script>
 </body>
 </html>
