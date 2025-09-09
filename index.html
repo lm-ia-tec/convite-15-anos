@@ -1,35 +1,199 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Convite - 15 anos Maria Gabriely</title>
-  <!-- Fonte especial do Google -->
-  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
-  <style>
-    /* Cabeçalho estilizado */
-    header {
-      padding: 2rem 1rem;
-      background: rgba(0,0,0,0.3);
-    }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Convite - 15 anos Maria Gabriely</title>
 
-    header h1 {
-      font-family: 'Great Vibes', cursive;
-      font-size: 3rem; /* bem maior para destaque */
-      margin: 0;
-      color: #f8cdda;
-      text-shadow: 2px 2px 15px #ffd1dc;
-    }
+<!-- Fonte elegante do Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
 
-    header p {
-      font-size: 1.2rem;
-      margin-top: 0.5rem;
-      color: #fff;
-      font-style: italic;
-      text-shadow: 1px 1px 5px #000;
-    }
-  </style>
+<style>
+  /* ======= Estilos básicos ======= */
+  body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    color: #fff;
+    text-align: center;
+    min-height: 100vh;
+    overflow-x: hidden;
+    background: url('fundo.png') no-repeat center center fixed;
+    background-size: cover;
+  }
+
+  header {
+    padding: 3rem 1rem 2rem 1rem;
+    background: rgba(0,0,0,0.3);
+  }
+
+  header h1 {
+    font-family: 'Great Vibes', cursive;
+    font-size: 3rem;
+    color: #ffd1dc;
+    margin: 0;
+    text-shadow: 2px 2px 15px #ffb6c1;
+  }
+
+  header h2 {
+    font-family: 'Great Vibes', cursive;
+    font-size: 2rem;
+    color: #fce4ec;
+    margin-top: 0.5rem;
+    text-shadow: 1px 1px 8px #e1bee7;
+  }
+
+  .details {
+    margin: 2rem auto;
+    padding: 1rem;
+    max-width: 600px;
+    background: rgba(255, 255, 255, 0.15);
+    border-radius: 15px;
+  }
+
+  .details h2 {
+    font-size: 1.4rem;
+    margin-bottom: 1rem;
+    color: #ffd1dc;
+  }
+
+  /* ======= Botões mágicos ======= */
+  .btn {
+    display: inline-block;
+    margin: 0.8rem 0.5rem;
+    padding: 0.8rem 1.5rem;
+    background: linear-gradient(135deg, #ffd1dc, #ffe4e9);
+    color: #2a2a2a;
+    font-weight: 500;
+    text-decoration: none;
+    border-radius: 25px;
+    transition: 0.4s;
+    box-shadow: 0 0 10px rgba(255,192,203,0.6);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .btn:hover {
+    background: #fff;
+    color: #000;
+    box-shadow: 0 0 25px #ffd1dc, 0 0 50px #f8cdda;
+  }
+
+  /* ======= Fundo com estrelas ======= */
+  .decor-stars {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    background: url('https://www.transparenttextures.com/patterns/stardust.png');
+    opacity: 0.25;
+    z-index: -1;
+  }
+
+  footer {
+    margin: 2rem 0;
+    font-size: 1rem;
+    color: #f8cdda;
+    font-style: italic;
+  }
+
+  /* ======= Borboletas ======= */
+  .butterfly {
+    position: fixed;
+    bottom: -20px;
+    font-size: 1em;
+    user-select: none;
+    pointer-events: none;
+    z-index: 1000;
+    animation-name: rise;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+  }
+
+  @keyframes rise {
+    0% { transform: translateY(0) rotate(0deg); opacity: 0; }
+    10% { opacity: 1; }
+    100% { transform: translateY(-110vh) rotate(360deg); opacity: 0; }
+  }
+
+  /* ======= Estrelas brilhantes ======= */
+  .star {
+    position: fixed;
+    background: radial-gradient(circle, #ffffff, rgba(255,255,255,0));
+    border-radius: 50%;
+    width: 2px;
+    height: 2px;
+    opacity: 0.8;
+    animation-name: twinkle;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-in-out;
+  }
+
+  @keyframes twinkle {
+    0%, 100% { opacity: 0.3; transform: scale(1); }
+    50% { opacity: 1; transform: scale(1.5); }
+  }
+
+  /* ======= Responsividade ======= */
+  @media (max-width: 600px) {
+    header h1 { font-size: 2.2rem; }
+    header h2 { font-size: 1.5rem; }
+    .details h2 { font-size: 1.1rem; }
+    .btn { padding: 0.6rem 1.2rem; font-size: 0.9rem; }
+  }
+</style>
 </head>
 <body>
-  <header>
-    <h1>✨ Meus 15 anos ✨</h1>
-    <p>By: Maria Gabriely</p>
-  </header>
+<div class="decor-stars"></div>
+
+<header>
+  <h1>✨ Meus 15 anos ✨</h1>
+  <h2>by: Maria Gabriely</h2>
+</header>
+
+<section class="details">
+  <h2>Olá, te convido para uma noite mágica e especial, conto com a sua presença!</h2>
+  <p><strong>Data:</strong> 27 de novembro de 2025 às 19h</p>
+  <p><strong>Local:</strong> Espaço North - Av. Mister Hull, 4758 - Antônio Bezerra, Fortaleza - CE, 60356-682</p>
+  <a class="btn" href="https://www.google.com/maps/dir/?api=1&destination=Espaço+North,+Av.+Mister+Hull,+4758+-+Antônio+Bezerra,+Fortaleza+-+CE,+60356-682" target="_blank">📍 Ver no mapa</a>
+  <a class="btn" href="https://docs.google.com/forms/d/e/1FAIpQLSfcEdLxQ0huL4yfuwKb3kHXksM3rMbKfae19P2opt1DxjHrww/viewform?usp=header" target="_blank">✅ Confirmar presença</a>
+</section>
+
+<section class="details">
+  <h2>Lista de Presentes</h2>
+  <a class="btn" href="https://seulink.com/lista-de-presentes" target="_blank">🎁 Ver Lista de Presentes</a>
+</section>
+
+<footer>
+  <p>Esperamos você para uma noite mágica! ✨</p>
+</footer>
+
+<script>
+  // ======= Criar borboletas =======
+  function createButterfly() {
+    const butterfly = document.createElement('div');
+    butterfly.classList.add('butterfly');
+    butterfly.style.left = Math.random() * window.innerWidth + 'px';
+    butterfly.style.fontSize = (Math.random() * 15 + 15) + 'px';
+    butterfly.style.animationDuration = (Math.random() * 15 + 12) + 's';
+    butterfly.innerText = '🦋';
+    document.body.appendChild(butterfly);
+    setTimeout(() => butterfly.remove(), parseFloat(butterfly.style.animationDuration) * 1000);
+  }
+  setInterval(createButterfly, 600);
+
+  // ======= Estrelas =======
+  for (let i = 0; i < 100; i++) {
+    const star = document.createElement('div');
+    star.classList.add('star');
+    star.style.left = Math.random() * window.innerWidth + 'px';
+    star.style.top = Math.random() * window.innerHeight + 'px';
+    star.style.width = Math.random() * 3 + 1 + 'px';
+    star.style.height = star.style.width;
+    star.style.animationDuration = (Math.random() * 2 + 1) + 's';
+    document.body.appendChild(star);
+  }
+</script>
+</body>
+</html>
