@@ -10,15 +10,16 @@
     margin: 0;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     color: #fff;
-    background: linear-gradient(to top, #1e3c72, #2a5298);
+    background: linear-gradient(to top, #a1c4fd, #c2e9fb); /* degradê azul claro */
     background-attachment: fixed;
     text-align: center;
     min-height: 100vh;
+    overflow-x: hidden;
   }
 
   header {
     padding: 2rem 1rem;
-    background: rgba(0,0,0,0.3);
+    background: rgba(0,0,0,0.2);
   }
 
   header h1 {
@@ -62,7 +63,6 @@
     box-shadow: 0 0 25px #ffd1dc, 0 0 50px #f8cdda;
   }
 
-  /* Pó de fada pulsante */
   .btn::before {
     content: '';
     position: absolute;
@@ -92,7 +92,7 @@
     height: 100%;
     pointer-events: none;
     background: url('https://www.transparenttextures.com/patterns/stardust.png');
-    opacity: 0.3;
+    opacity: 0.2;
     z-index: -1;
   }
 
@@ -102,23 +102,23 @@
     color: #ddd;
   }
 
-  /* ======= Neve ======= */
-  .snowflake {
+  /* ======= Pétalas ======= */
+  .petal {
     position: fixed;
-    top: -10px;
+    top: -20px;
     font-size: 1em;
-    color: #fff;
+    color: #ffc0cb;
     user-select: none;
     pointer-events: none;
     z-index: 1000;
-    text-shadow: 0 0 5px #aaddff;
-    animation-name: fall;
-    animation-duration: 10s;
+    text-shadow: 0 0 5px #ffb6c1;
+    animation-name: fallPetal;
+    animation-duration: 12s;
     animation-iteration-count: infinite;
     animation-timing-function: linear;
   }
 
-  @keyframes fall {
+  @keyframes fallPetal {
     0% { transform: translateY(0) rotate(0deg); }
     100% { transform: translateY(100vh) rotate(360deg); }
   }
@@ -176,18 +176,18 @@
 </footer>
 
 <script>
-  // ======= Neve =======
-  function createSnowflake() {
-    const snowflake = document.createElement('div');
-    snowflake.classList.add('snowflake');
-    snowflake.style.left = Math.random() * window.innerWidth + 'px';
-    snowflake.style.fontSize = (Math.random() * 10 + 10) + 'px';
-    snowflake.style.animationDuration = (Math.random() * 5 + 5) + 's';
-    snowflake.innerText = '❄';
-    document.body.appendChild(snowflake);
-    setTimeout(() => snowflake.remove(), 10000);
+  // ======= Pétalas =======
+  function createPetal() {
+    const petal = document.createElement('div');
+    petal.classList.add('petal');
+    petal.style.left = Math.random() * window.innerWidth + 'px';
+    petal.style.fontSize = (Math.random() * 20 + 15) + 'px';
+    petal.style.animationDuration = (Math.random() * 8 + 8) + 's';
+    petal.innerText = '🌸';
+    document.body.appendChild(petal);
+    setTimeout(() => petal.remove(), 16000);
   }
-  setInterval(createSnowflake, 200);
+  setInterval(createPetal, 300);
 
   // ======= Estrelas =======
   for (let i = 0; i < 100; i++) {
