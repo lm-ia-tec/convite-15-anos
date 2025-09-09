@@ -5,201 +5,106 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Convite - 15 anos Maria Gabriely</title>
 <style>
-  /* ======= Estilos básicos ======= */
-  body {
+  body, html {
     margin: 0;
+    padding: 0;
+    height: 100%;
+    overflow: hidden;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    color: #fff;
-    background: linear-gradient(to top, #a1c4fd, #c2e9fb); /* degradê azul claro */
-    background-attachment: fixed;
+  }
+
+  /* ======= Fundo com princesa estilizada ======= */
+  .background {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to top, #a1c4fd, #c2e9fb); /* céu azul suave */
+    background-image: url('https://i.imgur.com/5mWqJRA.png'); /* substitua pela imagem da princesa */
+    background-repeat: no-repeat;
+    background-position: center bottom;
+    background-size: contain;
+  }
+
+  /* ======= Mensagem do convite ======= */
+  .invite-message {
+    position: absolute;
+    top: 2%;
+    width: 100%;
     text-align: center;
-    min-height: 100vh;
-    overflow-x: hidden;
-  }
-
-  header {
-    padding: 2rem 1rem;
-    background: rgba(0,0,0,0.2);
-  }
-
-  header h1 {
-    font-size: 2rem;
-    color: #f8cdda;
-    text-shadow: 2px 2px 10px #ffd1dc;
-  }
-
-  .details {
-    margin: 2rem auto;
-    padding: 1rem;
-    max-width: 600px;
-    background: rgba(255, 255, 255, 0.1);
-    border-radius: 12px;
-  }
-
-  .details h2 {
-    font-size: 1.3rem;
-    margin-bottom: 1rem;
     color: #ffd1dc;
+    text-shadow: 2px 2px 10px #000;
+    font-size: 2rem;
+    font-weight: bold;
   }
 
-  /* ======= Botões mágicos ======= */
+  /* ======= Botões posicionados ======= */
   .btn {
-    display: inline-block;
-    margin: 0.8rem 0.5rem;
+    position: absolute;
     padding: 0.7rem 1.2rem;
     background: #f8cdda;
     color: #2a2a2a;
     text-decoration: none;
     border-radius: 8px;
-    transition: 0.5s;
     box-shadow: 0 0 10px rgba(255,255,255,0.6);
-    position: relative;
-    overflow: hidden;
+    transition: 0.5s;
   }
 
   .btn:hover {
     background: #fff;
-    color: #000;
     box-shadow: 0 0 25px #ffd1dc, 0 0 50px #f8cdda;
   }
 
-  .btn::before {
-    content: '';
+  /* ======= Borboletas ======= */
+  .butterfly {
     position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 200%;
-    height: 200%;
-    background: radial-gradient(circle, rgba(255,255,255,0.4) 0%, rgba(255,255,255,0) 70%);
-    transform: translate(-50%, -50%) scale(0);
-    opacity: 0;
-    border-radius: 50%;
+    font-size: 1.5rem;
+    color: #ffb6c1;
     pointer-events: none;
-    transition: transform 0.6s, opacity 0.6s;
-  }
-
-  .btn:hover::before {
-    transform: translate(-50%, -50%) scale(1);
-    opacity: 1;
-  }
-
-  /* ======= Fundo com estrelas ======= */
-  .decor-stars {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    pointer-events: none;
-    background: url('https://www.transparenttextures.com/patterns/stardust.png');
-    opacity: 0.2;
-    z-index: -1;
-  }
-
-  footer {
-    margin: 2rem 0;
-    font-size: 0.9rem;
-    color: #ddd;
-  }
-
-  /* ======= Pétalas ======= */
-  .petal {
-    position: fixed;
-    top: -20px;
-    font-size: 1em;
-    color: #ffc0cb;
-    user-select: none;
-    pointer-events: none;
-    z-index: 1000;
-    text-shadow: 0 0 5px #ffb6c1;
-    animation-name: fallPetal;
-    animation-duration: 12s;
-    animation-iteration-count: infinite;
-    animation-timing-function: linear;
-  }
-
-  @keyframes fallPetal {
-    0% { transform: translateY(0) rotate(0deg); }
-    100% { transform: translateY(100vh) rotate(360deg); }
-  }
-
-  /* ======= Estrelas brilhantes ======= */
-  .star {
-    position: fixed;
-    background: radial-gradient(circle, #ffffff, rgba(255,255,255,0));
-    border-radius: 50%;
-    width: 2px;
-    height: 2px;
-    opacity: 0.8;
-    animation-name: twinkle;
+    animation-name: fly;
+    animation-duration: 8s;
     animation-iteration-count: infinite;
     animation-timing-function: ease-in-out;
   }
 
-  @keyframes twinkle {
-    0%, 100% { opacity: 0.3; transform: scale(1); }
-    50% { opacity: 1; transform: scale(1.5); }
+  @keyframes fly {
+    0% { transform: translate(0,0) rotate(0deg); opacity: 0; }
+    10% { opacity: 1; }
+    50% { transform: translate(100px,-150px) rotate(180deg); opacity: 1; }
+    100% { transform: translate(200px,-300px) rotate(360deg); opacity: 0; }
   }
 
   /* ======= Responsividade ======= */
   @media (max-width: 600px) {
-    header h1 { font-size: 1.6rem; }
-    .details h2 { font-size: 1.1rem; }
-    .btn { padding: 0.6rem 1rem; font-size: 0.9rem; }
+    .invite-message { font-size: 1.5rem; }
+    .btn { padding: 0.5rem 1rem; font-size: 0.9rem; }
   }
-
 </style>
 </head>
 <body>
-<div class="decor-stars"></div>
+<div class="background">
+  <div class="invite-message">✨ Você está convidado para o Baile da Cinderela ✨</div>
 
-<header>
-  <h1>✨ Você está convidado para o Baile da Cinderela ✨</h1>
-</header>
-
-<section class="details">
-  <h2>Aniversário de 15 anos de Maria Gabriely</h2>
-  <p><strong>Data:</strong> 27 de novembro de 2025 às 19h</p>
-  <p><strong>Local:</strong> Espaço North - Av. Mister Hull, 4758 - Antônio Bezerra, Fortaleza - CE, 60356-682</p>
-  <a class="btn" href="https://www.google.com/maps/dir/?api=1&destination=Espaço+North,+Av.+Mister+Hull,+4758+-+Antônio+Bezerra,+Fortaleza+-+CE,+60356-682" target="_blank">📍 Ver no mapa</a>
-  <a class="btn" href="LINK_DO_FORMULARIO_GOOGLE" target="_blank">✅ Confirmar presença</a>
-</section>
-
-<section class="details">
-  <h2>Sugestões de Presentes</h2>
-  <a class="btn" href="https://www.magazineluiza.com.br/relogio-smartwatch-w29-pro-series-9-lancamento-2024-nfc-gps-gpt-original-microwear/p/kccdaa8c6b/" target="_blank">⌚ Relógio Feminino</a>
-  <a class="btn" href="https://www.gocase.com.br/tote-mini-clear/p/7897-minitotebag" target="_blank">👜 Bolsa Infantil</a>
-</section>
-
-<footer>
-  <p>Esperamos você para uma noite mágica! ✨</p>
-</footer>
+  <!-- Botões -->
+  <a class="btn" href="https://www.google.com/maps/dir/?api=1&destination=Espaço+North,+Av.+Mister+Hull,+4758+-+Antônio+Bezerra,+Fortaleza+-+CE,+60356-682" style="bottom: 15%; left: 20%;" target="_blank">📍 Ver no mapa</a>
+  <a class="btn" href="LINK_DO_FORMULARIO_GOOGLE" style="bottom: 15%; right: 20%;" target="_blank">✅ Confirmar presença</a>
+  <a class="btn" href="https://www.magazineluiza.com.br/relogio-smartwatch-w29-pro-series-9-lancamento-2024-nfc-gps-gpt-original-microwear/p/kccdaa8c6b/" style="top: 60%; left: 15%;" target="_blank">⌚ Relógio Feminino</a>
+  <a class="btn" href="https://www.gocase.com.br/tote-mini-clear/p/7897-minitotebag" style="top: 60%; right: 15%;" target="_blank">👜 Bolsa Infantil</a>
+</div>
 
 <script>
-  // ======= Pétalas =======
-  function createPetal() {
-    const petal = document.createElement('div');
-    petal.classList.add('petal');
-    petal.style.left = Math.random() * window.innerWidth + 'px';
-    petal.style.fontSize = (Math.random() * 20 + 15) + 'px';
-    petal.style.animationDuration = (Math.random() * 8 + 8) + 's';
-    petal.innerText = '🌸';
-    document.body.appendChild(petal);
-    setTimeout(() => petal.remove(), 16000);
+  // ======= Borboletas =======
+  function createButterfly() {
+    const butterfly = document.createElement('div');
+    butterfly.classList.add('butterfly');
+    // Posição inicial próxima do vestido (aprox. centro inferior)
+    butterfly.style.left = window.innerWidth/2 + (Math.random() * 40 - 20) + 'px';
+    butterfly.style.top = window.innerHeight - 200 + 'px';
+    butterfly.style.fontSize = (Math.random() * 20 + 15) + 'px';
+    butterfly.innerText = '🦋';
+    document.body.appendChild(butterfly);
+    setTimeout(() => butterfly.remove(), 8000);
   }
-  setInterval(createPetal, 300);
-
-  // ======= Estrelas =======
-  for (let i = 0; i < 100; i++) {
-    const star = document.createElement('div');
-    star.classList.add('star');
-    star.style.left = Math.random() * window.innerWidth + 'px';
-    star.style.top = Math.random() * window.innerHeight + 'px';
-    star.style.width = Math.random() * 3 + 1 + 'px';
-    star.style.height = star.style.width;
-    star.style.animationDuration = (Math.random() * 2 + 1) + 's';
-    document.body.appendChild(star);
-  }
+  setInterval(createButterfly, 500);
 </script>
 </body>
 </html>
