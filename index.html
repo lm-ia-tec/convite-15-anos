@@ -98,7 +98,7 @@
     font-style: italic;
   }
 
-  /* ======= Borboletas ======= */
+  /* ======= Borboletas (fade out antes do topo) ======= */
   .butterfly {
     position: fixed;
     bottom: -20px;
@@ -107,14 +107,35 @@
     pointer-events: none;
     z-index: 1000;
     animation-name: rise;
-    animation-iteration-count: infinite;
-    animation-timing-function: linear;
+    animation-iteration-count: 1;
+    animation-timing-function: cubic-bezier(.2,.7,.2,1);
+    animation-fill-mode: both;
   }
 
   @keyframes rise {
-    0% { transform: translateY(0) rotate(0deg); opacity: 0; }
-    10% { opacity: 1; }
-    100% { transform: translateY(-110vh) rotate(360deg); opacity: 0; }
+    0% {
+      transform: translateY(0) translateX(0) rotate(0deg) scale(1);
+      opacity: 0;
+    }
+    8% {
+      opacity: 1;
+    }
+    40% {
+      transform: translateY(-40vh) translateX(20px) rotate(20deg) scale(1.05);
+      opacity: 1;
+    }
+    70% {
+      transform: translateY(-70vh) translateX(-10px) rotate(-10deg) scale(1);
+      opacity: 0.7;
+    }
+    90% {
+      transform: translateY(-90vh) translateX(0px) rotate(30deg) scale(0.95);
+      opacity: 0.2;
+    }
+    100% {
+      transform: translateY(-90vh) translateX(0px) rotate(45deg) scale(0.9);
+      opacity: 0;
+    }
   }
 
   /* ======= Estrelas brilhantes ======= */
@@ -156,7 +177,10 @@
   <h2>Olá! Convido você para uma noite mágica e inesquecível, para comemorarmos juntos uma data muito especial para mim: meus 15 anos. Conto com a sua presença!</h2>
   <p><strong>Data:</strong> 27 de novembro de 2025 às 19h</p>
   <p><strong>Local:</strong> Espaço North - Av. Mister Hull, 4758 - Antônio Bezerra, Fortaleza - CE, 60356-682</p>
-  <a class="btn" href="https://www.google.com/maps/place/Espa%C3%A7o+North/@-3.738728,-38.587383,17z/data=!3m1!4b1!4m6!3m5!1s0x7c74bfa9d32650d:0x1bcdff1ea4cd41bd!8m2!3d-3.738728!4d-38.587383!16s%2Fg%2F11sby4ddnd?entry=ttu&g_ep=EgoyMDI1MDkwOS4wIKXMDSoASAFQAw%3D%3D" target="_blank">📍 Ver no mapa</a>
+  <p style="color: #ffb6c1; font-weight: bold; font-size: 1.1rem; margin-top: 1rem;">
+    ⚠️ Atenção: Traje esporte fino. Pedimos, por favor, que evitem usar roupas na cor azul. 💖
+  </p>
+  <a class="btn" href="https://www.google.com/maps/place/Espa%C3%A7o+North/@-3.738728,-38.587383,17z/data=!3m1!4b1!4m6!3m5!1s0x7c74bfa9d32650d:0x1bcdff1ea4cd41bd!8m2!3d-3.738728!4d-38.587383!16s%2Fg%2F11sby4ddnd?entry=ttu" target="_blank">📍 Ver no mapa</a>
   <a class="btn" href="https://docs.google.com/forms/d/e/1FAIpQLSfcEdLxQ0huL4yfuwKb3kHXksM3rMbKfae19P2opt1DxjHrww/viewform?usp=header" target="_blank">✅ Confirmar presença</a>
 </section>
 
@@ -164,15 +188,6 @@
   <h2>Sugestões de Presentes</h2>
   <a class="btn" href="sugestoes.pdf" target="_blank">🎁 Ver Lista </a>
 </section>
-
-<!-- Aviso do traje -->
-<div class="alert">
-  ⚠️ <strong>Observação 1:</strong> O traje da festa é <em>Esporte Fino</em>, preferenciamento em tons pastéis.  
-</div>
-  
-<div class="alert">
-  ⚠️ <strong>Observação 2:</strong> Pedimos que não sejam usadas roupas na cor <strong>azul</strong>. 💖
-</div>
 
 <footer>
   <p>Esperamos você para uma noite mágica! ✨</p>
@@ -184,11 +199,14 @@
     const butterfly = document.createElement('div');
     butterfly.classList.add('butterfly');
     butterfly.style.left = Math.random() * window.innerWidth + 'px';
-    butterfly.style.fontSize = (Math.random() * 15 + 15) + 'px';
-    butterfly.style.animationDuration = (Math.random() * 15 + 12) + 's';
+    const size = Math.random() * 15 + 15; // 15px a 30px
+    butterfly.style.fontSize = size + 'px';
+    const duration = (Math.random() * 13) + 12; // 12s a 25s
+    butterfly.style.animationDuration = duration + 's';
+    butterfly.style.animationDelay = (Math.random() * 1) + 's';
     butterfly.innerText = '🦋';
     document.body.appendChild(butterfly);
-    setTimeout(() => butterfly.remove(), parseFloat(butterfly.style.animationDuration) * 1000);
+    setTimeout(() => butterfly.remove(), (duration * 1000) + 800);
   }
   setInterval(createButterfly, 600);
 
@@ -206,17 +224,3 @@
 </script>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
