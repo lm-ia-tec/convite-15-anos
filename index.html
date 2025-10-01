@@ -180,15 +180,18 @@
 
 <script>
   // ======= Criar borboletas =======
-  function createButterfly() {
+function createButterfly() {
     const butterfly = document.createElement('div');
     butterfly.classList.add('butterfly');
     butterfly.style.left = Math.random() * window.innerWidth + 'px';
-    butterfly.style.fontSize = (Math.random() * 15 + 15) + 'px';
-    butterfly.style.animationDuration = (Math.random() * 15 + 12) + 's';
+    const size = Math.random() * 15 + 15; // 15px a 30px
+    butterfly.style.fontSize = size + 'px';
+    const duration = (Math.random() * 13) + 12; // 12s a 25s
+    butterfly.style.animationDuration = duration + 's';
+    butterfly.style.animationDelay = (Math.random() * 1) + 's';
     butterfly.innerText = '🦋';
     document.body.appendChild(butterfly);
-    setTimeout(() => butterfly.remove(), parseFloat(butterfly.style.animationDuration) * 1000);
+    setTimeout(() => butterfly.remove(), (duration * 1000) + 800);
   }
   setInterval(createButterfly, 600);
 
@@ -206,6 +209,7 @@
 </script>
 </body>
 </html>
+
 
 
 
